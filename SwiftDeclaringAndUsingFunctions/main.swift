@@ -135,9 +135,88 @@ print("SUM Rec : \(s0)")
 //Input: 1111   OUTPUT: 15
 //Input: 1010   OUTPUT: 10
 //Input: 101    OUTPUT: 5
+
+func power(n : Int) -> Int
+{
+    if n == 0 {
+        return 1
+    }else{
+        return 2 * power(n: n - 1)
+    }
+}
+
+print("POWER : \(power(n: 2))")
+
 func binaryToDecimal(n: Int) -> Int
 {
     var dec = 0
+    var num = n
+    var cnt = 0
     
+    while num != 0 {
+        if(num % 10 == 1)
+        {
+            dec = dec + power(n: cnt)
+        }
+        num = Int(num / 10)
+        cnt += 1
+    }
     return dec
 }
+
+print("DECIMAL : \(binaryToDecimal(n: 111))")
+print("DECIMAL : \(binaryToDecimal(n: 110))")
+print("DECIMAL : \(binaryToDecimal(n: 1111))")
+print("DECIMAL : \(binaryToDecimal(n: 11111111))")
+print("DECIMAL : \(binaryToDecimal(n: 001))")
+
+func optimizedBinaryToDecimal(n: Int) -> Int
+{
+    var dec = 0
+    var num = n
+    var cnt = 1
+    
+    while num != 0 {
+        if(num % 10 == 1)
+        {
+            dec = dec + cnt
+        }
+        num = Int(num / 10)
+        cnt *= 2
+    }
+    return dec
+}
+
+print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 111))")
+print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 110))")
+print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 1111))")
+print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 11111111))")
+print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 001))")
+
+
+///-------------- Do By YOUR OWN ----------------
+func convertBinaryToDecimal(InputInt: Int) -> Int
+{
+    
+    //input 101
+    var result: Int = 0
+    var number = InputInt
+    var reversed = 0
+    while number != 0
+    {
+        reversed = number % 10
+        number /= 10
+        switch reversed {
+        case 0:
+            result = result * 2
+        case 1:
+            result = result * 2 + 1
+        default:
+            return 3
+        }
+    }
+    return result;
+}
+
+var x0 = convertBinaryToDecimal(InputInt:1010)
+print(x0)
