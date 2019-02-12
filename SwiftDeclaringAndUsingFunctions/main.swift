@@ -77,5 +77,19 @@ print(si(amount: 1000, rate: 2.5))
 print(si(rate: 2.5))
 
 
+//Return Reverse of given Integer (N)
+//Input : n = 23454 Output = 45432
+//Input : n = 346798 Output = 897643
+func reverse(n: Int) -> Int
+{
+    var rev = 0
+    var num = n
+    
+    while num != 0 {
+        rev = (rev * 10) + (num % 10)
+        num = Int(num / 10)
+    }
+    return rev
+}
 
-
+print(reverse(n: 23453))
