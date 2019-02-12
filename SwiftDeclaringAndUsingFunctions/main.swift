@@ -192,31 +192,3 @@ print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 110))")
 print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 1111))")
 print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 11111111))")
 print("O - DECIMAL : \(optimizedBinaryToDecimal(n: 001))")
-
-
-///-------------- Do By YOUR OWN ----------------
-func convertBinaryToDecimal(InputInt: Int) -> Int
-{
-    
-    //input 101
-    var result: Int = 0
-    var number = InputInt
-    var reversed = 0
-    while number != 0
-    {
-        reversed = number % 10
-        number /= 10
-        switch reversed {
-        case 0:
-            result = result * 2
-        case 1:
-            result = result * 2 + 1
-        default:
-            return 3
-        }
-    }
-    return result;
-}
-
-var x0 = convertBinaryToDecimal(InputInt:1010)
-print(x0)
